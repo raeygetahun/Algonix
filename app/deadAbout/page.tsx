@@ -9,8 +9,8 @@ import React from 'react'
 const page = () => {
   return (
     <div className='bg-[#11112B] overflow-hidden'>
-      <NavBar/>
-<Aboutus1/>
+      {/* <NavBar/>
+<Aboutus1/> */}
 <Whywechoose props={{bgColor:"#D5D9E5",textColor:"#11112B",svgFill:"#11112B"}} />
 <Evidence/>
     </div>
