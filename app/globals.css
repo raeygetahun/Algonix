@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.change {
+    
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #000; /* Can be changed in the live sample */
+  }
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0 auto; /* Optional: Center the content */
+    scroll-behavior: smooth;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #8A9EA6;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #42A1C9;
+    border-radius: 20px;
+    border: 3px solid orange;
+  }
+
+
+  .btn-grad {
+    background-image: linear-gradient(to right, #003973 0%, #E5E5BE  51%, #003973  100%);
+    margin: 10px;
+    
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    
+  }
+
+  .btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
