@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import charli from "../public/images/phila.jpg";
-import staff from "../public/images/raey.JPG";
+import staff from "../public/images/raey.jpg";
 import staff1 from "../public/images/good_man.jpg";
 // import staff2 from '../public/images/staff2.jpg'
 // import staff3 from '../public/images/staff3.jpg'
