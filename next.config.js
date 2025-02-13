@@ -1,9 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: "export",
-  basePath: "/Algonix",
-  assetPrefix: "/Algonix/",
-  trailingSlash: true,
-};
+const nextConfig = {}
 
-module.exports = nextConfig;
+module.exports = nextConfig
