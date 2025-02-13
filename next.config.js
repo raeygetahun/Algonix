@@ -5,6 +5,7 @@ const nextConfig = {
   output: "export",
   basePath: isGitHubPages ? "/Algonix" : "",
   assetPrefix: isGitHubPages ? "/Algonix/" : "",
+  trailingSlash: true,
 };
 
 module.exports = nextConfig;
