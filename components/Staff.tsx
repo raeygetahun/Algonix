@@ -29,12 +29,12 @@ const Staff = () => {
               <div className="flex flex-col absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-70 transition-all duration-500  items-center justify-center group">
                 {/* <p className=" text-white font-poppins text-base font-normal leading-7 opacity-0 group-hover:opacity-100 transition-all duration-50">CEO & Founde</p> */}
                 <h6 className="text-white text-4xl font-poppins font-semibold leading-10 opacity-0 group-hover:opacity-100 transition-all duration-50">
-                  Philopos Tesfaye
+                  Phylipos Tesfaye
                 </h6>
               </div>
             </div>
 
-            <div className="bg-white w-[17vw] nomd:w-[70vw] h-[25vw] nomd:h-[70vw]  rounded-3xl shadow-2xl shadow-black relative ">
+            <div className="bg-white w-[17vw] nomd:w-[70vw] h-[25vw] nomd:h-[70vw]  rounded-3xl shadow-2xl shadow-black relative">
               <Image
                 src={staff}
                 alt="expertise"
