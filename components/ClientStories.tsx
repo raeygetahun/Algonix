@@ -1,142 +1,121 @@
 "use client";
-
-import Image from "next/image";
-import React, { useEffect, useState } from "react";
-import { HiOutlineArrowSmRight } from "react-icons/hi";
-import clientOne from "../public/images/client-one.jpg";
-import clientTwo from "../public/images/client-two.jpg";
-import clientThree from "../public/images/client-three.jpg";
-import { SiSamsung } from "react-icons/si";
-import { SiAmazongames } from "react-icons/si";
-import { FaWindows } from "react-icons/fa6";
-import { SiSony } from "react-icons/si";
-import { IoIosArrowForward } from "react-icons/io";
-import { IoIosArrowBack } from "react-icons/io";
-import { useAnimate, usePresence, motion } from "framer-motion";
+import React, { useState } from "react";
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
+import { motion } from "framer-motion";
+import { FaStar } from "react-icons/fa";
 import Client from "./Client";
 
-const ClientStories = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [scope, animate] = useAnimate();
-  const [isPresent, safeToRemove] = usePresence();
-  const [toLeft, setToLeft] = useState(false);
-  const animateToRight = async () => {
-    await animate(
-      ".client",
-      { x: [0, 500]},
-      { type: "tween", duration: 0.5 }
-    );
-  };
+// Define TypeScript types
+interface ClientProps {
+  id: string;
+  title: string;
+  name: string;
+  testimonial: string;
+  position: string;
+  avatar: string;
+  rating: number;
+}
 
-  const animateToLeft = async () => {
-    await animate(
-      ".client",
-      { x: [0, -500]},
-      { type: "tween", duration: 0.5 }
-    );
-  };
+const ClientStories: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [toLeft, setToLeft] = useState<boolean>(false);
 
-  const clients = [
+  // Client data with avatar images and 5-star ratings
+  const clients: ClientProps[] = [
     {
       title: "Amazing!",
       testimonial:
         '"Working with Algonix has been a game-changer for our business. Their expertise allowed us to scale our operations quickly and efficiently, and their personalized approach ensured that we got what we need."',
       name: "Daniel",
       position: "CEO of RAM Trucking Group",
-      image: clientOne,
-      id:"id1"
+      avatar: "/path-to-avatar1.jpg",
+      id: "id1",
+      rating: 5,
     },
     {
       title: "Great!",
       testimonial:
-        " “We were struggling to keep up with the demands of our growing business until we partnered with Algonix. Their custom software development solution has helped us streamline our operations and improve efficiency, saving us time and money.”",
+        "We were struggling to keep up with the demands of our growing business until we partnered with Algonix. Their custom software development solution has helped us streamline our operations and improve efficiency, saving us time and money.",
       name: "Dr. Katja",
-      position: "Director of Overbeck Musuem",
-      image: clientTwo,
-      id:"id2"
+      position: "Director of Overbeck Museum",
+      avatar: "/path-to-avatar2.jpg",
+      id: "id2",
+      rating: 5,
     },
     {
-      title: "Wonderfull!",
+      title: "Wonderful!",
       testimonial:
-        " “We were struggling to keep up with the demands of our growing business until we partnered with Algonix. Their custom software development solution has helped us streamline our operations and improve efficiency, saving us time and money.”",
+        "We were struggling to keep up with the demands of our growing business until we partnered with Algonix. Their custom software development solution has helped us streamline our operations and improve efficiency, saving us time and money.",
       name: "Stephen",
       position: "CEO of Dani Health Services",
-      image: clientThree,
-      id:"id3"
+      avatar: "/path-to-avatar3.jpg",
+      id: "id3",
+      rating: 5,
     },
   ];
 
-  const currentClients = [
+  const currentClients: ClientProps[] = [
     clients[currentIndex % clients.length],
     clients[(currentIndex + 1) % clients.length],
   ];
+  // Function to render stars
+  const renderStars = (rating: number): JSX.Element[] => {
+    return [...Array(5)].map((_, index) => (
+      <FaStar key={index} className={index < rating ? "text-yellow-400" : "text-gray-400"} />
+    ));
+  };
 
   return (
-    <section className="bg-[#11112B] flex flex-col  px-[5%] py-[8%] ">
-      <div className="flex flex-col items-center justify-between  ">
-        {/* title */}
+    <section className="bg-[#11112B] flex flex-col px-[5%] py-[8%]">
+      <div className="flex flex-col items-center justify-between">
+        {/* Title */}
         <div className="flex flex-row justify-between items-center w-[100%]">
-          <p className=" font-Space text-[5vw] text-white">Client Stories</p>
-          {/* <HiOutlineArrowSmRight className="text-white text-[5.5vw]" /> */}
+          <p className="font-Space text-[5vw] text-white">Client Stories</p>
         </div>
 
-        {/* clients row */}
-        <div
-          ref={scope}
-          className="flex flex-row justify-center items-center w-[100%] "
-        >
-          {/* arrow back */}
+        {/* Clients Row */}
+        <div className="flex flex-row justify-center items-center w-[100%] relative">
+          {/* Arrow Back */}
           <IoIosArrowBack
-            className= "relative z-50 text-white text-[5.5vw] hover:cursor-pointer hover:text-[#8ccf86]"
+            className="absolute left-0 text-white text-[5.5vw] hover:cursor-pointer hover:text-[#8ccf86]"
             onClick={() => {
               setToLeft(true);
-              const lastClient = clients.pop();
-              clients.unshift(lastClient!);
-              setCurrentIndex(
-                (currentIndex + clients.length - 1) % clients.length
-              );
-              // animateToLeft();
+              setCurrentIndex((currentIndex + clients.length - 1) % clients.length);
             }}
           />
 
-          {/* clients */}
-          {currentClients.map(
-            (client, index) =>
-              index < 1 && (
-                <Client
-                  id={client.id}
-                  
-                  toLeft={toLeft}
-                  title={client.title}
-                  name={client.name}
-                  testimonial={client.testimonial}
-                  position={client.position}
-                  
-                />
-              )
-          )}
+          {/* Clients */}
+          <motion.div
+            key={currentClients[0].id}
+            className="client flex flex-col items-center w-[60%] max-w-[800px] text-center mx-auto"
+            initial={{ opacity: 0, x: toLeft ? 100 : -700 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: toLeft ? -100 : 100 }}
+            transition={{ type: "spring", stiffness: 50, damping: 20 }}
+          >
+            {/* Client Component */}
+            <Client
+              id={currentClients[0].id}
+              title={currentClients[0].title}
+              name={currentClients[0].name}
+              testimonial={currentClients[0].testimonial}
+              position={currentClients[0].position}
+              toLeft={toLeft}  // Just keep the toLeft prop
+            />
 
-          {/*  arrow forward */}
+            {/* Rating */}
+            <div className="flex mt-2">{renderStars(currentClients[0].rating)}</div>
+          </motion.div>
+
+          {/* Arrow Forward */}
           <IoIosArrowForward
-            className=" relative z-50 text-white text-[5.5vw] hover:cursor-pointer hover:text-[#8ccf86]"
+            className="absolute right-0 text-white text-[5.5vw] hover:cursor-pointer hover:text-[#8ccf86]"
             onClick={() => {
               setToLeft(false);
               setCurrentIndex(currentIndex + 1);
-
-              // animateToRight();
             }}
           />
         </div>
-
-        
-
-        {/* Companies
-        <div className="flex flex-row justify-between w-[100%] mt-[7vw] ">
-          <SiSamsung className="text-white text-[7.5vw]" />
-          <SiAmazongames className="text-white text-[7.5vw]" />
-          <FaWindows className="text-white text-[7.5vw]" />
-          <SiSony className="text-white text-[7.5vw]" />
-        </div> */}
       </div>
     </section>
   );

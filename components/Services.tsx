@@ -49,13 +49,10 @@ const [isHover,setIsHover]=useState(false)
   {
     isHover && <motion.div initial={{scaleY:0}} animate={{scaleY:1}} transition={{duration:0.5}} style={{originY:props.serviceNum%2==0?0:1, backgroundColor:"#000",backgroundImage: `linear-gradient(rgba(17, 17, 43, 0.5), rgba(17, 17, 43, 0.5)), url(/images/services/web2.jpg)`,backgroundSize:'cover' }} className="relative w-[100%] rounded-[25px] h-[100%] flex flex-col justify-center items-center">
        <motion.div initial={{y:props.serviceNum%2==0?200:-200,opacity:0}} animate={{y:0,opacity:1}} transition={{delay:0.2,duration:0.5}} className=" relative z-10 " >
-       <p className="text-white font-Poppins font-[400] text-xl" >some content to  dispalayd</p>
-       <p className="text-white font-Poppins font-[400] text-xl" >some content to  dispalayd</p>
-       <p className="text-white font-Poppins font-[400] text-xl" >some content to  dispalayd</p>
-       <p className="text-white font-Poppins font-[400] text-xl" >some content to  dispalayd</p>
-       <p className="text-white font-Poppins font-[400] text-xl" >some content to  dispalayd</p>
+       <p className="text-white font-Poppins font-[600] text-2xl tracking-wide" >Algonix Technologies</p>
+       
        </motion.div>
-      <div className="w-32 h-32 bg-red-500 rounded-full flex flex-col justify-center items-center absolute top-[50%] left-[20%] z-0 " >
+      <div className="w-32 mt-7 h-32 bg-red-500 rounded-full flex flex-col justify-center items-center absolute top-[50%] left-[20%] z-0 " >
         <span className=" font-Poppins font-bold text-7xl text-white-100" >0{props.serviceNum}</span>
       </div>
 

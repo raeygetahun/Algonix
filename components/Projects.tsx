@@ -25,16 +25,16 @@ const projects:Project[]=[
 
   {
     imgUrl:'/images/projects/projects1.jpg',
-    title:"Uwang Corp.",
-    year:"2022",
-    description:"Uwang Corporation, a leading provider of financial services, was struggling to keep up with the demands of its growing business.",
+    title:"RAM Tracking Group",
+    year:"2024",
+    description:"RAM Tracking Group, a logistics company, needed a custom software solution to improve their operations. We deliver a satisfying software development.",
     id:1
   },
   {
     imgUrl:'/images/projects/projects2.jpg',
-    title:"Mika Medika",
+    title:"Dani Health Services",
     year:"2023",
-    description:"Mika Medika Healthcare, a large hospital network, was concerned about the security of their patient data. We help them with their cyber security.",
+    description:"Dani Health Services partnered with Algonix to streamline their operations and improve efficiency through a custom software development solution. This collaboration helped them save time and money while meeting the demands of their growing business.",
     id:2
   },
   {
@@ -62,14 +62,15 @@ const Projects = () => {
           Projects
         </h3>
         {/* Button */}
-        <div className="btn-grad flex items-center justify-center text-center nomd:w-[30vw] nomd:h-[10vw] w-[20vw] h-[4vw]   rounded-lg border border-white bg-dark-blue">
-          <button className="  flex items-center justify-center text-[1.3vw] nomd:text-[3vw]">
+        {/* <div className="btn-grad flex items-center justify-center text-center nomd:w-[30vw] nomd:h-[10vw] w-[20vw] h-[4vw]   rounded-lg border border-white bg-dark-blue">
+=          <button className="  flex items-center justify-center text-[1.3vw] nomd:text-[3vw]">
             EXPLORE NOW{" "}
             <span className="pl-4 flex-shrink-0">
               <FaArrowRight width={100} />
             </span>
           </button>
-        </div>
+
+        </div> */}
       </div>
 
       
