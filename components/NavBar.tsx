@@ -1,110 +1,95 @@
-'use client'
+"use client";
 import Link from "next/link";
-import { useState,useEffect } from "react";
-import { IoIosArrowForward } from "react-icons/io";
-import {GiHamburgerMenu} from "react-icons/gi"
-import {MdClose} from "react-icons/md"
-import { MotionValue, useMotionValueEvent, useScroll,useTransform,motion, useMotionValue } from "framer-motion";
-import { useRouter,usePathname } from 'next/navigation'
-import path from "path";
+import { useState } from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { MdClose } from "react-icons/md";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { usePathname } from "next/navigation";
 
-type Props={
-  bgColor:string,
-  
-  
-}
+const NavBar = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-const NavBar = () =>{
-  // #11112B
-const [isOpen, setIsOpen] =useState(false)
-const handleClick = () => setIsOpen(!isOpen);
+  // Toggle function to open/close the mobile menu
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+  };
 
+  const pathName = usePathname();
 
-const pathName=usePathname()
-
-
-
-
-const { scrollYProgress ,scrollY} = useScroll();
-
-
-
-const bgColor = useTransform(scrollYProgress, [0, 0.1], ['transparent', '#11112B']);
-const textColor = useTransform(scrollYProgress, [0, 0.1], ['#11112B', '#fff']);
-const op=useTransform(scrollYProgress, [0, 0.1], [1, 0]);
-
-console.log(pathName)
-// const textColor =pathName==="/blog" && bgColor.get()=="#11112B" ?"text-[#11112B]":"text-white"
+  // Scroll animation effects
+  const { scrollYProgress } = useScroll();
+  const bgColor = useTransform(scrollYProgress, [0, 0.1], ["transparent", "#11112B"]);
+  const textColor = useTransform(scrollYProgress, [0, 0.1], ["#11112B", "#fff"]);
 
   return (
+    <motion.div
+      style={{
+        backgroundColor: bgColor,
+        transition: "background-color 0.5s ease",
+        color: pathName === "/blog" ? textColor : "white",
+      }}
+      className="z-50 fixed w-full flex items-center justify-between px-10 py-5 top-0 left-0"
+    >
+      {/* Logo */}
+      <div className="text-xl font-bold">
+        <Link href="/">Algonix Technologies</Link>
+      </div>
 
-    <motion.div  style={{ backgroundColor:bgColor,transition: 'background-color 0.5s ease',color:pathName==="/blog"?textColor:"white" }}   className= {` " z-50  flex fixed w-[100%]   items-center justify-between px-10 top-0 left-0   py-5 mb-50" `}>
-      <div className="flex text-xl font-bold">Algonix Technologies</div>
-      <ul className={` " hidden md:flex  space-x-4 list-none text-md  uppercase   font-[400] font-Poppins cursor-pointer relative"`}>
-       
-       <Link href="/">
-        <li className="relative px-2 group  "> <span className="h-[1.5px] w-0 bg-white absolute left-0 right-0 -bottom-2 group-hover:w-full transition-width ease duration-700">&nbsp;</span> Home</li>
-       </Link>
-        <Link href="/about">
-        <li className="relative px-2 group"> <span className="h-[1.5px] w-0 bg-white absolute left-0 right-0 -bottom-2 group-hover:w-full transition-width ease duration-700">&nbsp;</span> About</li>
-        </Link>
-        <Link href="/services" >  
-        <li className="relative px-2 group"> <span className="h-[1.5px] w-0 bg-white absolute left-0 right-0 -bottom-2 group-hover:w-full transition-width ease duration-700">&nbsp;</span> Services</li>
-        </Link>
-        <Link href="/blog">
-        <li className="relative px-2 group"> <span className="h-[1.5px] w-0 bg-white absolute left-0 right-0 -bottom-2 group-hover:w-full transition-width ease duration-700">&nbsp;</span> Blog</li>
-        </Link>
+      {/* Desktop Navigation */}
+      <ul className="hidden md:flex space-x-6 list-none text-md uppercase font-[400] font-Poppins cursor-pointer">
+        {[{ name: "Home", path: "/" }, { name: "About", path: "/about" }, { name: "Services", path: "/services" }].map(
+          (item) => (
+            <Link key={item.path} href={item.path}>
+              <li className="relative px-3 group transition duration-300 hover:text-gray-300">
+                <span className="h-[2px] w-0 bg-white absolute left-0 right-0 -bottom-2 group-hover:w-full transition-all ease-in-out duration-500">
+                  &nbsp;
+                </span>
+                {item.name}
+              </li>
+            </Link>
+          )
+        )}
       </ul>
-      <div className="hidden md:flex  text-xl font-normal">
-      <motion.button style={{borderColor:pathName==="/blog"?textColor:"white"}} className={`  " rounded-[10px]   border-2 w-123 h-58 flex-shrink-0 py-1 px-2 backdrop-filter backdrop-blur-5 hover:text-[#4c9590] transition-colors font-Poppins"`}>Contact Us</motion.button>
+
+      {/* Contact Button */}
+      <div className="hidden md:flex text-xl font-normal">
+        <Link href="/contact">
+          <motion.button
+            style={{ borderColor: pathName === "/blog" ? textColor : "white" }}
+            className="rounded-lg border-2 py-1 px-4 backdrop-blur-md hover:bg-white/10 transition-all duration-300 font-Poppins"
+          >
+            Contact Us
+          </motion.button>
+        </Link>
       </div>
-        <div onClick={handleClick} className='md:hidden'>
-        {!isOpen ? <GiHamburgerMenu size={40}  /> : <MdClose size={40} className="text-[#BCA81F] relative z-50"/>}
+
+      {/* Hamburger Menu for Mobile */}
+      <div className="md:hidden z-50 relative">
+        {!isOpen ? (
+          <GiHamburgerMenu size={40} className="text-white cursor-pointer" onClick={handleClick} />
+        ) : (
+          <MdClose size={40} className="text-white cursor-pointer" onClick={handleClick} />
+        )}
       </div>
-      
-      <ul
-        className={
-          !isOpen
-            ? 'hidden'
-            : 'md:hidden text-[#11112B] absolute top-0 left-0 w-full h-5% bg-[#92DEED] flex flex-col justify-center items-center z-30  '
-        }
+
+      {/* Mobile Navigation */}
+      <motion.div
+        className={`fixed left-0 top-0 w-[80%] h-full bg-black/90 text-white flex flex-col justify-center items-center z-40 shadow-2xl 
+        transition-transform duration-500 ease-in-out
+        ${isOpen ? "translate-x-0" : "translate-x-[-100%]"}`}
       >
-        <li className='flex items-center  py-6 text-2xl border-b-2 border-gray-500 w-full '>
-        <IoIosArrowForward className="pl-2"/>
-          <Link onClick={handleClick} href="/" className="pl-5">
-            Home
-          </Link>
-        </li>
-        <li className=' flex items-center  py-6 text-2xl border-b-2 border-gray-500 w-full'>
-          {' '}
-          <IoIosArrowForward className="pl-2"/>
-          <Link onClick={handleClick} href="/" className="pl-5">
-            About
-          </Link>
-        </li>
-        <li className='flex items-center  py-6 text-2xl border-b-2 border-gray-500 w-full '>
-          {' '}
-          <IoIosArrowForward className="pl-2"/>
-          <Link onClick={handleClick} href="/" className="pl-5">
-            Services
-          </Link>
-        </li>
-        <li className='flex items-center  py-6 text-2xl border-b-2 border-gray-500 w-full '>
-          {' '}
-          <IoIosArrowForward className="pl-2"/>
-          <Link onClick={handleClick} href="/" className="pl-5">
-            Blogs
-          </Link>
-        </li>
-        <li className='flex items-center  py-6 text-2xl border-b-2 border-gray-500 w-full '>
-          {' '}
-          <IoIosArrowForward className="pl-2"/>
-          <Link onClick={handleClick} href="/" className="pl-5">
-            Contact US
-          </Link>
-        </li>
-      </ul>
-
+        {[{ name: "Home", path: "/" }, { name: "About", path: "/about" }, { name: "Services", path: "/services" }, { name: "Contact Us", path: "/contact" }].map(
+          (item) => (
+            <Link key={item.path} href={item.path} onClick={handleClick}>
+              <div
+                className="py-6 text-3xl border-b border-gray-700 w-full text-center hover:bg-white/10 rounded-md transition-all duration-200 ease-in-out"
+              >
+                {item.name}
+              </div>
+            </Link>
+          )
+        )}
+      </motion.div>
     </motion.div>
   );
 };

@@ -4,72 +4,67 @@ import { FaArrowRight } from "react-icons/fa";
 import heroImg from "../public/images/hero-img5.jpg";
 import Image from "next/image";
 import { motion, stagger, useAnimate, useInView } from "framer-motion";
-import { useRouter } from 'next/navigation';
+import Link from "next/link";
 
 const Hero = () => {
-  const router = useRouter();
   const [scope, animate] = useAnimate();
   const buttonRef = useRef(null);
-  const parsRef = useRef(null);
+  const parsRef =useRef(null)
   const isInView = useInView(scope);
-
   // await animate(
   //   ".parTwo",
   //   { x:[600,0]},
   //   { delay: 0.2, duration: 0.5 }
   // )
 
-  useEffect(() => {
-    const animatepars = async () => {
+  useEffect(()=>{
+     const animatepars = async () => {
       await Promise.all([
-        animate(
-          ".parOne",
-          { opacity: [0, 1], x: [-600, 0] },
-          { delay: 0, duration: 0.8 }
-        ),
-        animate(
-          ".parTwo",
-          { opacity: [0, 1], x: [600, 0] },
-          { delay: 0, duration: 0.8 }
-        ),
+        animate(".parOne", { opacity:[0,1], x: [-600, 0] }, { delay: 0, duration: 0.8 }),
+        animate(".parTwo", { opacity:[0,1], x: [600, 0] }, { delay: 0, duration: 0.8 }),
+
+        
       ]);
+       
+      await animate(".parThree",{opacity:[0,1],y:[100,0]},{ delay: 0, duration: 0.5 })
+       await animate(".button",{opacity:[0,1],x:[-900,0]},{ delay: 0, duration: 5.5,type:"spring",ease:"easeOut" })
+       
+      
 
-      await animate(
-        ".parThree",
-        { opacity: [0, 1], y: [100, 0] },
-        { delay: 0, duration: 0.5 }
-      );
-      await animate(
-        ".button",
-        { opacity: [0, 1], x: [-900, 0] },
-        { delay: 0, duration: 5.5, type: "spring", ease: "easeOut" }
-      );
-    };
+     }
 
-    animatepars();
-  }, []);
+     animatepars()
+  },[])
 
   useEffect(() => {
     const animateSvgs = async () => {
       await animate(
         "path",
-        { opacity: 0.1 }
+        { opacity: 0.1 },
         // { delay: stagger(0.4), duration: 0.5 }
       );
+       
+
     };
     // animateSvgs();
   }, []);
 
+
+
   return (
     <div
-      ref={scope}
+    ref={scope}
       className=" relative  bg-[#11112B]"
       style={{
         backgroundImage: `linear-gradient(to bottom, rgba(17, 17, 43, 0.4), rgba(17, 17, 43, 1)), url(/images/hero/hero-bg6.jpg)`,
         backgroundSize: "cover",
       }}
     >
-      <div className="flex flex-col  absolute top-[55%] z-0  ">
+      
+      <div
+       
+        className="flex flex-col  absolute top-[55%] z-0  "
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="100vw"
@@ -241,73 +236,51 @@ const Hero = () => {
       </div>
 
       <div
-        ref={parsRef}
-        className=" text-white relative pt-[30%] sm:pt-[20%] md:pt-[8%] gap-y-10 sm:gap-y-2  flex flex-col  px-[5%] "
-      >
-        {/* The rest content */}
+  ref={parsRef}
+  className="text-white relative pt-[30%] sm:pt-[20%] md:pt-[8%] gap-y-8 flex flex-col px-6 sm:px-[5%]"
+>
+  {/* Title Section */}
+  <div className="flex flex-col justify-center items-center text-center">
+    <div className="flex flex-col items-center justify-center leading-[1.1] font-Space text-[12vw] sm:text-[10vw] md:text-[6vw] font-bold">
+      <p className="py-0 parOne opacity-0 mt-6">
+        <span className="bg-[#92DEED] text-transparent bg-clip-text">Algonix </span>
+        <span
+          style={{
+            background: `linear-gradient(97deg, #92DEED 30.1%, #FFF 74.6%)`,
+            backgroundClip: "text",
+          }}
+          className="text-transparent bg-clip-text"
+        >
+          Technologies
+        </span>
+      </p>
 
-        {/* <div> */}
-        <div className=" gap-y-8 sm:gap-y-0 flex flex-col justify-center items-center">
-          <div className="flex flex-col items-center justify-center leading-[1.1]  font-Space text-[14vw] md:text-[9vw]  font-bold  ">
-            <p className="py-0 parOne opacity-0  ">
-              <span className="bg-[#92DEED] text-transparent bg-clip-text">
-                YOU
-              </span>
-              <span
-                style={{
-                  background: `linear-gradient(97deg, #92DEED 30.1%, #FFF 74.6%)`,
-                  backgroundClip: "text",
-                }}
-                className=" text-transparent bg-clip-text"
-              >
-                R TRUSTED
-              </span>{" "}
-            </p>
+      {/* Wider "TECH OUTSOURCING PARTNER" text */}
+      <p className="parTwo opacity-0 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-Poppins font-light italic pt-4 w-[95%] sm:w-[90%] md:w-[80%] leading-[1.3] text-center">
+  {/* TECH OUTSOURCING PARTNER */}
+Your Tech Partner
+</p>
 
-            <p className="  parTwo opacity-0">
-              {" "}
-              <span className=" font-Poppins font-[300]">TECH</span>{" "}
-              PARTNER
-            </p>
-          </div>
+    </div>
 
-          <p className=" parThree opacity-0 flex items-center justify-center text-white text-center font-Poppins w-[100%] md:w-[50%] nod:px-[25px]  font-normal leading-7 mb-14">
-            From custom software development to cybersecurity, our team of
-            experts is dedicated to delivering solutions tailored to your unique
-            needs.
-          </p>
-        </div>
+    {/* Description */}
+    <p className="parThree opacity-0 flex items-center justify-center text-white text-center font-Poppins w-[90%] sm:w-[80%] md:w-[60%] px-4 font-normal leading-7 sm:leading-8 text-base sm:text-lg md:text-xl lg:text-2xl mt-6 mb-12">
+      <span className="font-[400]">
+        From custom software development to cybersecurity, our team of experts is dedicated to delivering solutions tailored to your unique needs.
+      </span>
+    </p>
+  </div>
 
-        <div className="flex justify-center items-center button opacity-0">
-          <motion.button
-              onClick={() => router.push('/services')}
-              whileHover={{
-              scaleX: 1.2,
-              scaleY: 1.2,
-              borderRadius: "35px",
-              letterSpacing: "2px",
-            }}
-            transition={{ duration: 0.1 }}
-            className=" w-[250px] h-[60px] sm:w-[250px] sm:h-[60px]  md:w-[300px] md:h-[70px] btn-grad flex  items-center justify-center text-center text-xl whitespace-nowrap   border-white border-2  flex-shrink-0
-          backdrop-filter backdrop-blur-5 text-[#219ebc]  py-3 px-6 rounded-[40px]  "
-          >
-            EXPLORE NOW{" "}
-            <span className="pl-4 flex-shrink-0">
-              <FaArrowRight width={100} />
-            </span>
-          </motion.button>
-        </div>
-        {/* </div> */}
-
-        {/* Images */}
-        {/* <div>
-        <Image
-            src={heroImg}
-            alt="hero imag"
-            className="w-[40vw] h-[40vw] rounded-[1.5vw]"
-          />
-        </div> */}
-      </div>
+  {/* Button Section */}
+  <div className="flex justify-center items-center button opacity-0">
+    <button className="w-[180px] sm:w-[220px] md:w-[250px] h-[50px] sm:h-[60px] md:h-[70px] btn-grad flex items-center justify-center text-center text-sm sm:text-lg md:text-xl border-white border-2 flex-shrink-0 backdrop-filter backdrop-blur-md text-[#219ebc] py-2 px-4 sm:px-6 rounded-full">
+      EXPLORE NOW
+      <span className="pl-3">
+        <FaArrowRight size={18} />
+      </span>
+    </button>
+  </div>
+</div>
     </div>
   );
 };

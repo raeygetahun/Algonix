@@ -11,7 +11,7 @@ type Props = {
 const Whywechoose = ({ props }: { props: Props }) => {
   return (
     <div
-      className={` bg-[${props.bgColor}] text-[${props.textColor}] "   flex flex-col justify-center  px-[2%]  py-10 pb-20 "`}
+      className={` bg-[${props.bgColor}] text-[${props.textColor}] "   flex flex-col justify-center  px-[4%]  py-10 pb-20 "`}
     >
       <div className="flex flex-col items-start max-w-[562px] mb-10 font-Space font-bold text-[10vw] sm:text-[5vw] ">
         <h3 className="  md:flex items-start  leading-tight">Why</h3>
@@ -19,7 +19,7 @@ const Whywechoose = ({ props }: { props: Props }) => {
       </div>
 
       <div className="  items-center justify-between flex flex-row flex-wrap gap-y-24  ">
-        <div className="flex flex-col justify-center gap-y-16 items-start max-w-[275px]  transform hover:scale-110 transition-all duration-200 ease-in-out  ">
+        <div className="flex flex-col justify-center gap-y-16 items-start max-w-[250px]   transition-all duration-200 ease-in-out  ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="130"
@@ -1208,7 +1208,8 @@ const Whywechoose = ({ props }: { props: Props }) => {
           </div>
         </div>
 
-        <div className="flex flex-col justify-center gap-y-16 items-start max-w-[275px]   hover:scale-110 transition-all duration-200 ease-in-out ">
+
+        <div className="flex flex-col justify-center gap-y-16 items-start max-w-[250px]   transition-all duration-200 ease-in-out ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="95"
@@ -2921,7 +2922,8 @@ const Whywechoose = ({ props }: { props: Props }) => {
           </div>
         </div>
 
-        <div className="flex flex-col justify-center gap-y-16 max-w-[275px]  transform hover:scale-110 transition-all duration-200 ease-in-out ">
+
+        <div className="flex flex-col justify-center gap-y-16 max-w-[250px]   transition-all duration-200 ease-in-out ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="150"
@@ -3034,7 +3036,8 @@ const Whywechoose = ({ props }: { props: Props }) => {
           </div>
         </div>
 
-        <div className="flex flex-col justify-center gap-y-16 max-w-[275px]  transform hover:scale-110 transition-all duration-200 ease-in-out">
+
+        <div className="flex flex-col justify-center gap-y-16 max-w-[250px]   transition-all duration-200 ease-in-out">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="110"

@@ -9,7 +9,7 @@ const Evidence = () => {
       {/* Successful Projects */}
       <div className='flex flex-col items-center text-center'>
         <h1 className='font-SpaceGrotesk font-bold text-[#92DEED] text-5xl sm:text-6xl lg:text-7xl leading-[110%] mb-4'>
-          10+
+          500+
         </h1>
         <h2 className='font-Poppins font-semibold text-white text-lg sm:text-xl lg:text-2xl leading-[125%]'>
           Successful Projects
@@ -26,7 +26,7 @@ const Evidence = () => {
       {/* Satisfied Client */}
       <div className='flex flex-col items-center text-center'>
         <h1 className='font-SpaceGrotesk font-bold text-[#92DEED] text-5xl sm:text-6xl lg:text-7xl leading-[110%] mb-4'>
-          98
+          98%
         </h1>
         <h2 className='font-Poppins font-semibold text-white text-lg sm:text-xl lg:text-2xl leading-[125%]'>
           Satisfied Client
