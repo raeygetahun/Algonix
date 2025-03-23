@@ -39,7 +39,7 @@ const Contact = () => {
             </div>
             <p className=' font-Poppins text-[18px] text-white font-[300] ' >
 
-            hello@wavenet.com
+            sales@algonixtechnologies.com
             </p>
                 </div>
 
