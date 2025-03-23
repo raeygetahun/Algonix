@@ -1,9 +1,9 @@
 import React from "react";
 import Image from "next/image";
 import phila from "../public/images/phila.jpg";
-import raey from "../public/images/raey.jpg";
+import raey from "../public/images/raey.JPG";
 import goodman from "../public/images/good_man.jpg";
-import hanna from "../public/images/hanna.jpg";
+import hanna from "../public/images/hanna.JPG";
 
 const staffMembers = [
   { name: "Phylipos Tesfaye", image: phila },
