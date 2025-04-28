@@ -25,7 +25,7 @@ export default function Home() {
        <ClientStories/>
        <ServicesWhite/>
        {/* <Projects/> */}
-      <Staff/>
+      {/* <Staff/> */}
     </main>
   );
 }
