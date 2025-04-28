@@ -9,6 +9,8 @@ import { AiOutlineSecurityScan } from "react-icons/ai";
 import { LiaLaptopCodeSolid } from "react-icons/lia";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { AiOutlineRobot } from "react-icons/ai";
+import { RiLightbulbFlashLine } from "react-icons/ri";
 
 type Props={
   bgColor:string,
@@ -63,19 +65,33 @@ const [isHover,setIsHover]=useState(false)
 }
 
 const seviceContents=[
+
+
+{
+  title: "Artificial Intelligence",
+  content: "Develop intelligent systems to automate processes, enhance decision-making, and create personalized user experiences.",
+  bgColor: "bg-gradient-to-b from-white-30 to-white-10 ",
+  textColor: "text-white",
+  icon: <AiOutlineRobot className="text-white text-6xl md:text-[5.5vw]" />
+},
+{
+  title: "AI Consulting",
+  content: "Provide expert guidance on integrating AI technologies to drive innovation and solve complex business challenges.",
+  bgColor: "bg-gradient-to-b from-white-30 to-white-10 ",
+  textColor: "text-white",
+  icon: <RiLightbulbFlashLine className="text-white text-6xl md:text-[5.5vw]" />
+},
   {title:"Web Development",content:"create website that are visualy applealing",bgColor:"bg-gradient-to-b from-white-30 to-white-10 ",textColor:"text-white",icon:  <BsGlobe className=" text-white text-6xl   md:text-[5.5vw]" />
 },
   {title:"Mobile Development",content:"Create or enhance mobile applications, ensuring optimized user experience.",bgColor:"bg-gradient-to-b from-white-30 to-white-10 ",textColor:"text-white",icon:  <SlScreenSmartphone className=" text-white text-6xl   md:text-[5.5vw]" />
 },
 {title:"Cyber Security",content:"Provides advanced protection for your data and systems against threats.",bgColor:"bg-gradient-to-b from-white-30 to-white-10 ",textColor:"text-white",icon:   <AiOutlineSecurityScan className=" text-white text-6xl   md:text-[5.5vw]" />
 },
-
-{title:"Cyber Security",content:"Create solutions to help businesses achieve their digital marketing goals.",bgColor:"bg-gradient-to-b from-white-30 to-white-10 ",textColor:"text-white",icon:   <AiOutlineSecurityScan className=" text-white text-6xl   md:text-[5.5vw]" />
-},
 {title:"Cloud Computing",content:"Provides access to scalable computing resources to optimize their operations.",bgColor:"bg-[#92DEED] ",textColor:"text-white",icon:   <AiOutlineSecurityScan className=" text-white text-6xl   md:text-[5.5vw]" />
 },
 {title:"Software Development",content:"Provides customized solutions to create and maintain software applications.",bgColor:"bg-gradient-to-b from-white-30 to-white-10 ",textColor:"text-white",icon:   <LiaLaptopCodeSolid className=" text-white text-6xl   md:text-[5.5vw]" />
 },
+
 
 
 
