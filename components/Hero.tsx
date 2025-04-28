@@ -27,7 +27,7 @@ const Hero = () => {
       ]);
        
       await animate(".parThree",{opacity:[0,1],y:[100,0]},{ delay: 0, duration: 0.5 })
-       await animate(".button",{opacity:[0,1],x:[-900,0]},{ delay: 0, duration: 5.5,type:"spring",ease:"easeOut" })
+      //  await animate(".button",{opacity:[0,1],x:[-900,0]},{ delay: 0, duration: 5.5,type:"spring",ease:"easeOut" })
        
       
 
@@ -266,20 +266,20 @@ Your Tech Partner
     {/* Description */}
     <p className="parThree opacity-0 flex items-center justify-center text-white text-center font-Poppins w-[90%] sm:w-[80%] md:w-[60%] px-4 font-normal leading-7 sm:leading-8 text-base sm:text-lg md:text-xl lg:text-2xl mt-6 mb-12">
       <span className="font-[400]">
-        From custom software development to cybersecurity, our team of experts is dedicated to delivering solutions tailored to your unique needs.
+        From custom software development to AI system and cybersecurity, our team of experts is dedicated to delivering solutions tailored to your unique needs.
       </span>
     </p>
   </div>
 
   {/* Button Section */}
-  <div className="flex justify-center items-center button opacity-0">
+  {/* <div className="flex justify-center items-center button opacity-0">
     <button className="w-[180px] sm:w-[220px] md:w-[250px] h-[50px] sm:h-[60px] md:h-[70px] btn-grad flex items-center justify-center text-center text-sm sm:text-lg md:text-xl border-white border-2 flex-shrink-0 backdrop-filter backdrop-blur-md text-[#219ebc] py-2 px-4 sm:px-6 rounded-full">
       EXPLORE NOW
       <span className="pl-3">
         <FaArrowRight size={18} />
       </span>
     </button>
-  </div>
+  </div> */}
 </div>
     </div>
   );
