@@ -18,7 +18,7 @@ const Aboutus1 = () => {
       <div className="flex flex-col md:flex-row items-center justify-center text-white py-12 px-6 md:px-12 lg:px-20">
         {/* Left Column - Heading */}
         <h5 className="text-[6vw] md:text-[4vw] lg:text-[2.5vw] xl:text-[2vw] font-bold leading-normal text-center md:text-left mb-6 md:mb-0 md:w-1/2">
-          We believe that technology can change the world.
+          We believe that technology can change your business.
         </h5>
 
         {/* Right Column - Paragraphs */}
