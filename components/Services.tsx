@@ -11,6 +11,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { AiOutlineRobot } from "react-icons/ai";
 import { RiLightbulbFlashLine } from "react-icons/ri";
+import { FaRobot } from "react-icons/fa"; // Updated import
 
 type Props={
   bgColor:string,
@@ -72,7 +73,7 @@ const seviceContents=[
   content: "Develop intelligent systems to automate processes, enhance decision-making, and create personalized user experiences.",
   bgColor: "bg-gradient-to-b from-white-30 to-white-10 ",
   textColor: "text-white",
-  icon: <AiOutlineRobot className="text-white text-6xl md:text-[5.5vw]" />
+  icon: <FaRobot className="text-white text-6xl md:text-[5.5vw]" />
 },
 {
   title: "AI Consulting",
