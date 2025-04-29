@@ -134,7 +134,7 @@ const Motto = () => {
         <motion.p initial="hidden" whileInView="visible" variants={pargVariants}  className="font-Space text-[6vw] text-[#11112B] font-bold ">
           <span>can </span>
            <span className={`change text-[#D5D9E5] text-[6vw]   `}>change</span>
-          <span> the world.</span>
+          <span> your business.</span>
         </motion.p>
 
         <div className="flex flex-col justify-center items-center text-center mt-20 px-[20%]">
